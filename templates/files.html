@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<body>
+<h1>shitty file server v{{version}}</h1>
+<h2>
+{% for peer, data in peers.items() %}
+    <a href='http://{{peer}}/'>{{peer}}</a> 
+{% endfor %}
+</h2>
+</br>
+{% for file in files %}
+    <a href='/static/{{file}}'>{{file}}</a></br>
+{% endfor %}
+</body>
