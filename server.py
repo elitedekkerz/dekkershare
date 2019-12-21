@@ -7,7 +7,7 @@ peers = peer_discovery.peer_handler()
 peers.update_peers()
 
 try:
-    share_dir = os.getenv("HOMEDRIVE")+os.getenv("HOMEPATH")+'\Dekkershare'
+    share_dir = os.getcwd()+'\share'
     if not os.path.exists(share_dir):
         os.makedirs(share_dir)
 except:
