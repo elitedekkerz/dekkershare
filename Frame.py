@@ -28,7 +28,7 @@ class MyForm(wx.Frame):
         print("file written")
 
     def OpenBrowser(self,event):
-        webbrowser.open("raptor/",new=2)
+        webbrowser.open("localhost/",new=2)
 
 
 if __name__ == "__main__":

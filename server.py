@@ -2,6 +2,9 @@
 from flask import Flask, render_template
 import os
 import peer_discovery
+from Frame import MyForm
+import threading
+import wx
 
 peers = peer_discovery.peer_handler()
 peers.update_peers()
@@ -23,5 +26,9 @@ def downloads():
     return render_template('files.html', files = os.listdir(share_dir), version = "0.0000", peers = peers.peers)
 
 if __name__ == '__main__':
-    app.run("0.0.0.0", 80, debug=True)
+    threading.Thread(target = app.run, args = ("0.0.0.0", 80,)).start()
+    wxApp = wx.App(False)
+    f = MyForm()
+    f.Show()
+    wxApp.MainLoop()
     peers.thread_run = False
