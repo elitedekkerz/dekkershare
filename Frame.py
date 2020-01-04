@@ -3,8 +3,8 @@ import os
 import webbrowser
 
 class MyForm(wx.Frame):
-    def __init__(self):
-        self.Dir="none"
+    def __init__(self, configuration):
+        self.configuration = configuration
         wx.Frame.__init__(self,None,wx.ID_ANY,"Dekkerz SFSOL")
         panel=wx.Panel(self,wx.ID_ANY)
         self.CurrentDir=os.getcwd()
@@ -19,13 +19,8 @@ class MyForm(wx.Frame):
         dlg=wx.DirDialog(self,"Choose a directory",style=wx.DD_DEFAULT_STYLE)
         if dlg.ShowModal()==wx.ID_OK:
             print("you chose %s"%dlg.GetPath())
-            self.Dir=dlg.GetPath()
-            self.WriteFile()
-
-    def WriteFile(self):
-        with open("Settings.txt","w")as file:
-            file.write(self.Dir)
-        print("file written")
+            self.configuration.Set_share_dir(dlg.GetPath())
+            self.configuration.Save_config()
 
     def OpenBrowser(self,event):
         webbrowser.open("localhost/",new=2)
