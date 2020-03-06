@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <body>
-<h1>shitty file server v{{version}}</h1>
+<h1><a href='https://github.com/elitedekkerz/dekkershare'>shitty file server v{{version}}</a></h1>
 <h2>
 {% for peer, data in peers.items() %}
     <a href='http://{{peer}}/'>{{peer}}</a> 
@@ -10,5 +10,4 @@
 {% for file in files %}
     <a href='/static/{{file}}'>{{file}}</a></br>
 {% endfor %}
-<a href='https://github.com/elitedekkerz/dekkershare'>github</a>
 </body>
