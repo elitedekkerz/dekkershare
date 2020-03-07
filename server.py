@@ -12,14 +12,6 @@ peers.update_peers()
 
 conf = Configuration()
 
-try:
-    conf.Set_share_dir(os.getcwd()+'\share')
-    if not os.path.exists(share_dir):
-        os.makedirs(share_dir)
-except:
-    print("unable to set share file")
-    conf.Set_share_dir('./')
-
 app = Flask(__name__, static_url_path='/static/', static_folder=conf.Get_share_dir())
 
 @app.route("/")
